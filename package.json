@@ -24,6 +24,7 @@
     "@radix-ui/react-toggle-group": "*",
     "@radix-ui/react-tooltip": "*",
     "@vercel/functions": "^3.3.4",
+    "@vercel/node": "^5.5.15",
     "class-variance-authority": "*",
     "clsx": "*",
     "cmdk": "*",

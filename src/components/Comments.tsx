@@ -82,8 +82,7 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
     }
   };
 
-  // TODO: Replace with your Cloudflare Turnstile site key from environment variables
-  const siteKey = import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY || '1x00000000000000000000AA';
+  const siteKey = import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY;
 
   return (
     <div className="space-y-6">

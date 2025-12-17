@@ -29,7 +29,6 @@ export default async function handler(
         return response.status(400).json({ error: 'Missing required fields' });
       }
 
-      // TODO: Replace with your Cloudflare Turnstile secret key
       const secretKey = process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY;
       if (!secretKey) {
         console.error('CLOUDFLARE_TURNSTILE_SECRET_KEY is not set');

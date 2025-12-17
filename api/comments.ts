@@ -23,32 +23,29 @@ export default async function handler(
 
       return response.status(200).json(comments);
     } else if (request.method === 'POST') {
-      const { competitionId, author, text, 'cf-turnstile-response': turnstileToken } = request.body;
+      const { competitionId, author, text, 'h-captcha-response': hCaptchaToken } = request.body;
 
-      if (!competitionId || !author || !text || !turnstileToken) {
+      if (!competitionId || !author || !text || !hCaptchaToken) {
         return response.status(400).json({ error: 'Missing required fields' });
       }
 
-      const secretKey = process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY;
+      const secretKey = process.env.HCAPTCHA_SECRET_KEY;
       if (!secretKey) {
-        console.error('CLOUDFLARE_TURNSTILE_SECRET_KEY is not set');
+        console.error('HCAPTCHA_SECRET_KEY is not set');
         return response.status(500).json({ error: 'Internal Server Error' });
       }
 
-      const verificationURL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+      const verificationURL = 'https://hcaptcha.com/siteverify';
       const verificationResponse = await fetch(verificationURL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          secret: secretKey,
-          response: turnstileToken,
-        }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `response=${hCaptchaToken}&secret=${secretKey}`,
       });
 
       const verificationData = await verificationResponse.json();
 
       if (!verificationData.success) {
-        return response.status(400).json({ error: 'Cloudflare Turnstile verification failed' });
+        return response.status(400).json({ error: 'hCaptcha verification failed' });
       }
 
       const db = client.db('ucomp');

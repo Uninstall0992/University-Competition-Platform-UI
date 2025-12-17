@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@marsidev/react-turnstile": "^1.4.0",
+    "@hcaptcha/react-hcaptcha": "^1.17.1",
     "@radix-ui/react-aspect-ratio": "*",
     "@radix-ui/react-context-menu": "*",
     "@radix-ui/react-dialog": "*",

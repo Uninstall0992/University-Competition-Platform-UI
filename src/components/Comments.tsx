@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Turnstile } from '@marsidev/react-turnstile';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
@@ -65,7 +65,7 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
           competitionId,
           author,
           text,
-          'cf-turnstile-response': token,
+          'h-captcha-response': token,
         }),
       });
 
@@ -82,7 +82,7 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
     }
   };
 
-  const siteKey = import.meta.env.VITE_CLOUDFLARE_TURNSTILE_SITE_KEY;
+  const siteKey = import.meta.env.VITE_HCAPTCHA_SITE_KEY;
 
   return (
     <div className="space-y-6">
@@ -94,6 +94,7 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
             required
+            style={{ color: 'white' }}
           />
           <Textarea
             placeholder="Bình luận của bạn"
@@ -101,7 +102,10 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
             onChange={(e) => setText(e.target.value)}
             required
           />
-          <Turnstile siteKey={siteKey} onSuccess={setToken} />
+          <HCaptcha
+            sitekey={siteKey}
+            onVerify={setToken}
+          />
           <Button type="submit">Gửi</Button>
           {error && <p className="text-red-500">{error}</p>}
         </form>
@@ -114,10 +118,10 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
         {!isLoading && !fetchError && comments.length === 0 && <p className="text-white">Chưa có bình luận nào.</p>}
         <div className="space-y-4">
           {comments.map((comment) => (
-            <Card key={comment._id}>
+            <Card key={comment._id} className="text-white">
               <CardHeader>
                 <CardTitle>{comment.author}</CardTitle>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-400">
                   {new Date(comment.createdAt).toLocaleString()}
                 </p>
               </CardHeader>

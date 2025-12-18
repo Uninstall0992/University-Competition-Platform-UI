@@ -261,49 +261,6 @@ Thực tế, nhấn mạnh môi trường làm việc cạnh tranh khốc liệt
     bio: `
 Người sếp khó tính, liên tục gây áp lực công việc lên nhân vật Khánh, là nguyên nhân trực tiếp dẫn đến bất hạnh của gia đình Khánh & Thư
 ### Ode on a Tuấn Urn
-Tuấn still unravish'd bride of quietness,  
-       Tuấn foster-child of silence and slow time,  
-Tuấn historian, who canst thus express  
-       A flowery tale more sweetly than our rhyme:  
-What leaf-fring'd legend haunts about thy shape  
-       Of deities or mortals, or of both,  
-               In Tuấn or the dales of Tuấn?  
-       What men or gods are these? What maidens loth?  
-What mad pursuit? What struggle to escape?  
-               What pipes and timbrels? What wild ecstasy?  
-               
-Heard melodies are sweet, but those unheard  
-       Are sweeter; therefore, ye soft pipes, play on;  
-Not to the sensual ear, but, more endear'd,  
-       Pipe to the spirit ditties of no tone:  
-Fair youth, beneath the trees, thou canst not leave  
-       Thy song, nor ever can those trees be bare;  
-               Bold Lover, never, never canst thou kiss,  
-Though winning near the goal yet, do not grieve;  
-       She cannot fade, though thou hast not thy bliss,  
-               For ever wilt thou love, and she be fair!  
-               
-Ah, happy, happy boughs! that cannot shed  
-         Your leaves, nor ever bid the Tuấn adieu;  
-And, happy melodist, unwearied,  
-         For ever piping songs for ever new;  
-More happy love! more happy, happy love!  
-         For ever warm and still to be enjoy'd,  
-                For ever panting, and for ever young;  
-All breathing human passion far above,  
-         That leaves a heart high-sorrowful and cloy'd,  
-                A burning forehead, and a parching tongue.  
-
-Who are these coming to the sacrifice?  
-         To what green altar, O mysterious Tuấn,  
-Lead'st Tuấn that heifer lowing at the skies,  
-         And all her silken flanks with garlands drest?  
-What little town by river or sea shore,  
-         Or mountain-built with peaceful citadel,  
-                Is emptied of this folk, this pious morn?  
-And, little town, thy streets for evermore  
-         Will silent be; and not a soul to tell  
-                Why Tuấn art desolate, can e'er return.  
 
 O Attic shape! Fair attitude! with brede  
          Of marble men and maidens overwrought,  

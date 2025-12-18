@@ -117,8 +117,8 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
         {fetchError && <p className="text-red-500">{fetchError}</p>}
         {!isLoading && !fetchError && comments.length === 0 && <p className="text-white">Chưa có bình luận nào.</p>}
         <div
-          className="max-h-[384px] overflow-y-auto rounded-md border border-white/30 bg-white/5 backdrop-blur-sm p-4"
-          style={{ maxHeight: '384px', overflowY: 'auto' }}
+          className="h-96 max-h-[384px] overflow-y-auto rounded-md border border-white/30 bg-white/5 backdrop-blur-sm p-4"
+          style={{ height: '24rem', maxHeight: '384px', overflowY: 'auto' }}
         >
           <div className="space-y-4">
             {comments.map((comment) => (
@@ -130,7 +130,7 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <p className="whitespace-pre-line overflow-hidden break-words">
+                  <p className="whitespace-pre-line overflow-hidden break-words max-h-32 overflow-y-auto">
                     {comment.text}
                   </p>
                 </CardContent>

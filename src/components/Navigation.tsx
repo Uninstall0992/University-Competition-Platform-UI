@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
-import { useState } from "react";
+import { useSearch } from "./ui/search-context";
 
 export function Navigation() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const { searchQuery, setSearchQuery } = useSearch();
 
   return (
     <nav className="sticky top-0 z-50 bg-white/10 backdrop-blur-xl border-b border-white/20 shadow-lg">

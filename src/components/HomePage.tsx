@@ -23,6 +23,7 @@ import {
 import { useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import TermExplanation from './TermExplanation';
+import { useSearch } from "./ui/search-context";
 
 const mockPosts = [
   {
@@ -149,7 +150,7 @@ const announcements = [
 ];
 
 export function HomePage() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const { searchQuery, setSearchQuery } = useSearch();
   const [topicFilter, setTopicFilter] = useState("all");
   const [typeFilter, setTypeFilter] = useState("all");
 
@@ -166,7 +167,12 @@ export function HomePage() {
       post.tags.some((tag) =>
         tag.toLowerCase().includes(topicFilter.toLowerCase()),
       );
-    return matchesSearch && matchesTopic;
+    const matchesType =
+      typeFilter === "all" ||
+      post.tags.some((tag) =>
+        tag.toLowerCase().includes(typeFilter.toLowerCase()),
+      );
+    return matchesSearch && matchesTopic && matchesType;
   });
 
   const featuredPosts = filteredPosts.filter(
@@ -462,9 +468,7 @@ export function HomePage() {
                     placeholder="Tìm kiếm bài đăng…"
                     className="pl-10"
                     value={searchQuery}
-                    onChange={(e) =>
-                      setSearchQuery(e.target.value)
-                    }
+                    onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
               </div>

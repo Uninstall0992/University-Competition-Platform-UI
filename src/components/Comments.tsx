@@ -4,6 +4,7 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { ScrollArea } from './ui/scroll-area';
 
 interface Comment {
   _id: string;
@@ -116,21 +117,25 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
         {isLoading && <p className="text-white">Đang tải bình luận...</p>}
         {fetchError && <p className="text-red-500">{fetchError}</p>}
         {!isLoading && !fetchError && comments.length === 0 && <p className="text-white">Chưa có bình luận nào.</p>}
-        <div className="space-y-4">
-          {comments.map((comment) => (
-            <Card key={comment._id} className="text-white">
-              <CardHeader>
-                <CardTitle>{comment.author}</CardTitle>
-                <p className="text-sm text-gray-400">
-                  {new Date(comment.createdAt).toLocaleString()}
-                </p>
-              </CardHeader>
-              <CardContent>
-                <p>{comment.text}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <ScrollArea className="h-96 rounded-md border border-white/30">
+          <div className="space-y-4 p-4">
+            {comments.map((comment) => (
+              <Card key={comment._id} className="text-white overflow-hidden">
+                <CardHeader>
+                  <CardTitle className="truncate">{comment.author}</CardTitle>
+                  <p className="text-sm text-gray-400 truncate">
+                    {new Date(comment.createdAt).toLocaleString()}
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <p className="whitespace-pre-line overflow-hidden text-ellipsis line-clamp-5">
+                    {comment.text}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </ScrollArea>
       </div>
     </div>
   );

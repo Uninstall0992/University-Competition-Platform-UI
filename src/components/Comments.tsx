@@ -4,7 +4,6 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { ScrollArea } from './ui/scroll-area';
 
 interface Comment {
   _id: string;
@@ -117,8 +116,8 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
         {isLoading && <p className="text-white">Đang tải bình luận...</p>}
         {fetchError && <p className="text-red-500">{fetchError}</p>}
         {!isLoading && !fetchError && comments.length === 0 && <p className="text-white">Chưa có bình luận nào.</p>}
-        <ScrollArea className="h-96 rounded-md border border-white/30">
-          <div className="space-y-4 p-4">
+        <div className="h-96 overflow-y-auto rounded-md border border-white/30 bg-white/5 backdrop-blur-sm p-4">
+          <div className="space-y-4">
             {comments.map((comment) => (
               <Card key={comment._id} className="text-white overflow-hidden">
                 <CardHeader>
@@ -135,7 +134,7 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
               </Card>
             ))}
           </div>
-        </ScrollArea>
+        </div>
       </div>
     </div>
   );

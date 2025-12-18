@@ -116,18 +116,21 @@ const Comments: React.FC<CommentsProps> = ({ competitionId }) => {
         {isLoading && <p className="text-white">Đang tải bình luận...</p>}
         {fetchError && <p className="text-red-500">{fetchError}</p>}
         {!isLoading && !fetchError && comments.length === 0 && <p className="text-white">Chưa có bình luận nào.</p>}
-        <div className="h-96 overflow-y-auto rounded-md border border-white/30 bg-white/5 backdrop-blur-sm p-4">
+        <div
+          className="max-h-[384px] overflow-y-auto rounded-md border border-white/30 bg-white/5 backdrop-blur-sm p-4"
+          style={{ maxHeight: '384px', overflowY: 'auto' }}
+        >
           <div className="space-y-4">
             {comments.map((comment) => (
-              <Card key={comment._id} className="text-white overflow-hidden">
+              <Card key={comment._id} className="text-white overflow-hidden break-words">
                 <CardHeader>
-                  <CardTitle className="truncate">{comment.author}</CardTitle>
+                  <CardTitle className="truncate max-w-[75%]">{comment.author}</CardTitle>
                   <p className="text-sm text-gray-400 truncate">
                     {new Date(comment.createdAt).toLocaleString()}
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <p className="whitespace-pre-line overflow-hidden text-ellipsis line-clamp-5">
+                  <p className="whitespace-pre-line overflow-hidden break-words">
                     {comment.text}
                   </p>
                 </CardContent>
